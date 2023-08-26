@@ -1,4 +1,4 @@
-![DYOR wallet protector logo](https://github.com/Saksham010/DYOR/blob/main/assets/DYORfinal1.png)
+![DYOR wallet protector logo](./assets/DYORfinal1.png)
 
 # DYOR
 
