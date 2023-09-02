@@ -1,5 +1,6 @@
 const hre = require("hardhat");
 const ABI = require("../artifacts/contracts/Malicious.sol/Rug.json");
+const ERC20ABI = require("../ABI/ERC20ABI.json");
 
 async function main() {
 // Deploy contract
@@ -26,12 +27,26 @@ async function main() {
     console.log("Calling function");
 
     const tx = await MaliciousContract.buy({value:ethers.utils.parseUnits("100","ether")});
-
     console.log("Transfer Transaction: ",tx);
 
-    // const MaliciousContractProvider  = new ethers.Contract(,ABI.abi,provider);
+    // const MaliciousContractProvider  = new ethers.Contract(,ABI.abi,provider)";
     const tx2 = await MaliciousContract.setValue(10);
     console.log("Non transfer transaction: ",tx2);
+
+    // Approval for ERC20 tokens
+    const ERC20Token = new ethers.Contract("addresss",ERC20ABI,impersonateSigner);
+    const tokenName = await ERC20Token.name();
+    console.log("Token name: ",tokenName);
+    console.log("Approving");
+    const approvetx = await ERC20Token.approve("spender",ether.utils.parseUnits("100","ether"));
+    console.log("Transaction approved: ",approvetx);
+
+    
+
+
+
+
+
     
   }
 
