@@ -5,8 +5,8 @@ chrome.runtime.onMessageExternal.addListener((message, sender, sendResponse) => 
       chrome.windows.create({
         url:page,
         type:"popup",
-        width:800,
-        height:600,
+        width:500,
+        height:720,
         left:100,
         top:100,
         focused:true
@@ -21,8 +21,12 @@ chrome.runtime.onMessageExternal.addListener((message, sender, sendResponse) => 
             popupWindowId = null;
           }
         })
+        // Send response to the content script
+        sendResponse({type:message.event.method,data: message.event.params})
+
       });
     }
+
 
     
   });

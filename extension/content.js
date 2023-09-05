@@ -10,9 +10,14 @@ function checkForEthereum() {
     window.ethereum.request = async (e) =>{
       console.log("E: ",e);
       if(e.method == 'personal_sign'){
+        //Send data to injected js
+        window.postMessage({ type: "FROM_GLOBAL", data: e }, "*");
+
+        //Open chrome extension
         await new Promise((resolve) => {
           chrome.runtime.sendMessage("hchgggjaefgaecmiepfegkjpnbjbopkb", { action: "openExtension", event:e}, (res) => {
-            console.log("Response: ",res);
+            console.log("Response from background js: ",res);
+            // response = res;
             resolve();
           });
         });
@@ -22,6 +27,7 @@ function checkForEthereum() {
       return ret;
     }
     console.log("Window Ethereum modified");
+
     return;
   } else {
     // If not available yet, wait and check again

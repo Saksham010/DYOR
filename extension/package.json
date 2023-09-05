@@ -8,13 +8,14 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "build-extension": "tsc && vite build && cp src/manifest.json dist/ && cp background.js dist/ && cp content.js dist/ && cp signpage.html dist/"
+    "build-extension": "tsc && vite build && cp src/manifest.json dist/ && cp background.js dist/ && cp content.js dist/ && cp injected.js dist/"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/chrome": "^0.0.244",
     "@types/node": "^20.5.8",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",

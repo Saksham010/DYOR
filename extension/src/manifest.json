@@ -23,7 +23,14 @@
 		  "run_at": "document_end",
 		  "world": "MAIN"
 
-		}
+		},
+		{
+			"matches": ["<all_urls>"],
+			"js": ["injected.js"],
+			"run_at": "document_end",
+			"world": "ISOLATED"
+  
+		  }
 	  ],
 	  "externally_connectable": {
 		"matches": ["<all_urls>"]
