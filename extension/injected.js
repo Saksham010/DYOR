@@ -18,6 +18,17 @@ function sendResponseToExtension(msg,sender,sendResponse){
     if(msg == 'REQUEST_DATA'){
       sendResponse(response);
     }
+    else if(msg == 'ACCEPT'){
+      sendResponse('ACCEPTED');
+      // Send signal to open metamask
+      window.postMessage({type:"FROM_ISOLATED",data:msg},"*");
+    }
+    else if(msg == "REJECT"){
+      sendResponse('REJECTED');
+
+      // send signal to not open metamask
+      window.postMessage({type:"FROM_ISOLATED",data:msg},"*");
+    }
   }
 chrome.runtime.onMessage.addListener(sendResponseToExtension);
 

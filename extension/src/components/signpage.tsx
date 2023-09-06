@@ -8,7 +8,9 @@ export default function SignPage(props:any){
           str += String.fromCharCode(charCode);
         }
         return str;
-      }
+    }
+
+
 
     return(
         <>
@@ -20,8 +22,6 @@ export default function SignPage(props:any){
             <p>Message: {props.message?hexToString(props.message):props.message}</p>
             <p>Signer: {props.signer}</p>
 
-            <button>Reject</button>
-            <button>Continue</button>
         </>
     )
 }

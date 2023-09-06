@@ -4,6 +4,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import SignPage from './components/signpage'
+import HandleIntent from './components/intent'
 
 
 
@@ -72,6 +73,8 @@ function App(props:{title:string}) {
   return (
     <>
       {title === 'DYOR Shield'?home:<SignPage method={fetchedResponse.method} message={fetchedResponse.params[0]} signer={fetchedResponse.params[1]}/>}
+
+      <HandleIntent/>
 
     </>
   )
