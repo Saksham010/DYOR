@@ -1,8 +1,21 @@
+// import {parseApprovalData} from "./helper";
+// import {approve,approveForAll} from "./signature";
+
+
 let popupWindowId = null;
 chrome.runtime.onMessageExternal.addListener((message, sender, sendResponse) => {
   console.log("Background js called");
   if (message.action == "OPEN_EXTENSION") {
-    const page = message.event.method == 'personal_sign' ? 'sign/index.html':'index.html';
+    let page = 'index.html';
+    if(message.event.method == 'personal_sign'){
+      page = 'sign/index.html';
+
+    }
+    else if(message.event.method == 'eth_sendTransaction'){
+      // const {signature} = parseApprovalData(message.event.params[0].data);
+      page = 'approval/index.html';
+    }
+    // const page = message.event.method == 'personal_sign' ? 'sign/index.html':'index.html';
     chrome.windows.create({
       url:page,
       type:"popup",

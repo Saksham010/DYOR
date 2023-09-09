@@ -5,6 +5,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import SignPage from './components/signpage'
 import HandleIntent from './components/intent'
+import ApprovePage from './components/approvepage'
 
 
 
@@ -16,6 +17,7 @@ function App(props:{title:string}) {
     method:"",
     params:[]
   });
+  const [isFetched,setIsFetched] = useState(false);
   //Home page component
   const home = <>
         <div>
@@ -67,12 +69,34 @@ function App(props:{title:string}) {
             ...response
           }
         });      
+        // After fetching set fetched to true
+        setIsFetched(true);
       })
     });
   },[]);
+
+
+  const pagedata = ()=>{
+    if(title == 'DYOR Shield'){
+      return home;
+    }else if(title == 'DYOR Shield - Sign'){
+      return (
+        <SignPage method={fetchedResponse.method} message={fetchedResponse.params[0]} signer={fetchedResponse.params[1]}/>
+      )
+    }else{
+      return(
+        <ApprovePage method={fetchedResponse.method} data={fetchedResponse.params[0]} status={isFetched} />
+      )
+    }
+  }
+
+  // console.log("Page data: ",pagedata);
+
   return (
     <>
-      {title === 'DYOR Shield'?home:<SignPage method={fetchedResponse.method} message={fetchedResponse.params[0]} signer={fetchedResponse.params[1]}/>}
+      
+
+      {pagedata()}
 
       <HandleIntent/>
 

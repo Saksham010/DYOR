@@ -15,7 +15,8 @@ export default defineConfig({
     rollupOptions:{
       input:{
         main: resolve(root,'index.html'),
-        sign: resolve(root,'sign','index.html')
+        sign: resolve(root,'sign','index.html'),
+        approval:resolve(root,'approval','index.html')
 
       }
     }
