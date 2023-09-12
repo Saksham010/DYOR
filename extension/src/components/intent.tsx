@@ -6,12 +6,12 @@ function handleIntent(INTENT:string){
     console.log("Blocking the wallet");
 
     chrome.tabs.sendMessage(tabs[0].id || 0, INTENT,(response)=>{
-    if(response == "REJECTED"){
-        console.log("Closing the tab");
-    }
-    else if(response == "ACCEPTED"){
-        console.log("Invoking metamask");
-    }    
+        if(response.data == "REJECTED"){
+            console.log("Closing the tab");
+        }
+        else if(response.data == "ACCEPTED"){
+            console.log("Invoking metamask");
+        }    
     })
     });
 }

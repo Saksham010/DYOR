@@ -15,7 +15,7 @@ function checkForEthereum() {
     console.log("Modifying window ethereum");
     let metamaskrequest = window.ethereum.request;
     window.ethereum.request = async (e) =>{
-      console.log("E: ",e);
+      console.log("Emethod:  ",e);
       if(e.method == 'personal_sign' || e.method == 'eth_sendTransaction'){
         //Send data to injected js
         window.postMessage({ type: "FROM_GLOBAL", data: e }, "*");
@@ -57,10 +57,25 @@ function checkForEthereum() {
         });
       }
 
-      return await metamaskrequest({...e})
+      if(e.method == "eth_chainId"){
+        const data = await metamaskrequest({...e});
+        window.postMessage({ type: "FROM_GLOBAL_CHAINID", data: data }, "*");
 
+      }
+      return await metamaskrequest({...e});
+      
     }
     console.log("Window Ethereum modified");
+
+
+    // Modifying window.ethereum send
+    console.log("Modifying window.ethereum.send");
+    const metamaskSendRequest = window.ethereum.send;
+    window.ethereum.send =(e,t)=>{
+      console.log("Send is called, E:",e," T: ",t);
+      return metamaskSendRequest(e,t);
+    }
+    console.log("Modified");
 
   } else {
     // If not available yet, wait and check again

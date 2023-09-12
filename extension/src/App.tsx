@@ -15,8 +15,10 @@ function App(props:{title:string}) {
   const [count, setCount] = useState(0);
   const [fetchedResponse,setFetchedResponse] = useState({
     method:"",
-    params:[]
+    params:[],
+    chainid:"0x1"
   });
+  const [chainid, setchainId] = useState("0x5");
   const [isFetched,setIsFetched] = useState(false);
   //Home page component
   const home = <>
@@ -63,14 +65,38 @@ function App(props:{title:string}) {
       console.log("Sending message ... tabs: ",tabs);
       chrome.tabs.sendMessage(tabs[0].id || 0, "REQUEST_DATA",(response)=>{
         console.log("Response received on fronend: ",response);
+
+        //Fetched data and chain id
+        const dataObj = response.calldata;
+        const id = response.chaindata;      
+
+        //Update data
         setFetchedResponse((currobj)=>{
           return {
             ...currobj,
-            ...response
+            ...dataObj
           }
-        });      
-        // After fetching set fetched to true
+        });
+
+        setchainId(id);
+
         setIsFetched(true);
+
+  
+        // if(response.type == "ID"){
+        //   setchainId(response.data);
+        // }
+        // else if(response.type == "TRANSACTION"){
+
+        //   setFetchedResponse((currobj)=>{
+        //     return {
+        //       ...currobj,
+        //       ...response
+        //     }
+        //   });      
+        //   // After fetching set fetched to true
+        //   setIsFetched(true);
+        // }
       })
     });
   },[]);
@@ -85,7 +111,7 @@ function App(props:{title:string}) {
       )
     }else{
       return(
-        <ApprovePage method={fetchedResponse.method} data={fetchedResponse.params[0]} status={isFetched} />
+        <ApprovePage method={fetchedResponse.method} data={fetchedResponse.params[0]} status={isFetched} chainid={chainid} />
       )
     }
   }
@@ -94,6 +120,7 @@ function App(props:{title:string}) {
 
   return (
     <>
+      {chainid}
       
 
       {pagedata()}

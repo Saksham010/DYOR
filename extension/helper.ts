@@ -10,6 +10,7 @@
 //     ]
 // }
 import { APPROVAL } from "./types/types";
+import {RPC_LIST} from "./rpclist/rpclist";
 
 export function parseApprovalData(data:string):APPROVAL{
     const trimed = data.slice(2,data.length); //Remove 0x
@@ -28,7 +29,56 @@ export function parseApprovalData(data:string):APPROVAL{
         value,
     }
 }
-console.log(parseApprovalData("0xa22cb4650000000000000000000000001e0049783f008a0085193e00003d00cd54003c710000000000000000000000000000000000000000000000000000000000000001"))
+// console.log(parseApprovalData("0xa22cb4650000000000000000000000001e0049783f008a0085193e00003d00cd54003c710000000000000000000000000000000000000000000000000000000000000001"))
+
+export function getRPCURL(chainID:string):string{
+    let url = "https://eth.llamarpc.com";
+
+    switch(chainID){
+
+        case "0x1":
+            url = RPC_LIST.eth_rpc;
+            break;
+
+        case "0x5":
+            url = RPC_LIST.goerli_rpc;
+            break;
+        
+        case "0xaa36a7":
+            url = RPC_LIST.sepolia_rpc;
+            break;
+        
+        case "0x2105":
+            url = RPC_LIST.base_rpc
+            break;
+        
+        case "0x14a33":
+            url = RPC_LIST.base_testnet_rpc;
+            break;
+
+        case "0x89":
+            url = RPC_LIST.polygon_rpc;
+            break;
+        
+        case "0x13881":
+            url = RPC_LIST.mumbai_rpc;
+            break;
+
+        case "0x38":
+            url = RPC_LIST.bsc_rpc;
+            break;
+        
+        case "0x61":
+            url = RPC_LIST.bsc_tetnet_rpc;
+            break;
+             
+        default:
+            url = RPC_LIST.eth_rpc;
+            break;
+    }
+
+    return url;
+}
 
 
 
