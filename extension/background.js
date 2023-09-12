@@ -2,7 +2,7 @@
 // import {approve,approveForAll} from "./signature";
 
 
-let popupWindowId = null;
+let popupWindowId = -1;
 chrome.runtime.onMessageExternal.addListener((message, sender, sendResponse) => {
   console.log("Background js called");
   if (message.action == "OPEN_EXTENSION") {
@@ -33,7 +33,7 @@ chrome.runtime.onMessageExternal.addListener((message, sender, sendResponse) => 
         if(closedWindowId == popupWindowId){
           sendResponse("success");
 
-          popupWindowId = null;
+          popupWindowId = -1;
         }
       })
       // Send response to the content script

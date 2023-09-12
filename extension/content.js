@@ -5,7 +5,6 @@ function closeExtension(){
 
 }
 
-
 function checkForEthereum() {
   console.log("Content script called")
   console.log("Window ethereum: ",window.ethereum);
