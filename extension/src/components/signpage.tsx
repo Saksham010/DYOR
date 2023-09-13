@@ -52,7 +52,7 @@ export default function SignPage(props:any){
             </>
             setElement(tempelement);
         }
-        else if(props.method == 'person_sign'){
+        else if(props.method == 'personal_sign'){
             const tempelement = <>
                 <div>
                     <div>
