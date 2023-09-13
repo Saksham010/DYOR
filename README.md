@@ -9,6 +9,10 @@ DYOR is a wallet protector that simulates a transaction prior to user's approval
 
 In middle of finding ways to simluate the transaction and flag malicious ones. 
 
+## Installation guide
+
+Since the extension is still being reviewed i've pushed it through a webiste with a quick guide on how to load the extension: https://www.loom.com/share/f777abbd497f4950b103ab64c5d7482e
+
 ## Collaboration
 Looking for people working on building AI model for flagging malicious/vulnerable contracts to integrate in the project.
 
