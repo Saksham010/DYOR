@@ -12,6 +12,7 @@
 import { APPROVAL } from "./types/types";
 import {RPC_LIST} from "./rpclist/rpclist";
 
+
 export function parseApprovalData(data:string):APPROVAL{
     const trimed = data.slice(2,data.length); //Remove 0x
     const functionSignature = trimed.slice(0,8);  //Get function signature
@@ -29,8 +30,6 @@ export function parseApprovalData(data:string):APPROVAL{
         value,
     }
 }
-// console.log(parseApprovalData("0xa22cb4650000000000000000000000001e0049783f008a0085193e00003d00cd54003c710000000000000000000000000000000000000000000000000000000000000001"))
-
 export function getRPCURL(chainID:string):string{
     let url = "https://eth.llamarpc.com";
 
@@ -81,6 +80,10 @@ export function getRPCURL(chainID:string):string{
 }
 
 
+
+// const signv4:string = '{"types":{"PermitSingle":[{"name":"details","type":"PermitDetails"},{"name":"spender","type":"address"},{"name":"sigDeadline","type":"uint256"}],"PermitDetails":[{"name":"token","type":"address"},{"name":"amount","type":"uint160"},{"name":"expiration","type":"uint48"},{"name":"nonce","type":"uint48"}],"EIP712Domain":[{"name":"name","type":"string"},{"name":"chainId","type":"uint256"},{"name":"verifyingContract","type":"address"}]},"domain":{"name":"Permit2","chainId":"5","verifyingContract":"0x000000000022d473030f116ddee9f6b43ac78ba3"},"primaryType":"PermitSingle","message":{"details":{"token":"0x9e9adc71262ab77b460e80d41dded76dd43407e9","amount":"1461501637330902918203684832716283019655932542975","expiration":"1697188333","nonce":"0"},"spender":"0x3fc91a3afd70395cd496c647d5a6cc9d4b2b7fad","sigDeadline":"1694598133"}}';
+// const finalob  = JSON.parse(signv4);
+// console.log(finalob);
 
 
 

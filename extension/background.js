@@ -5,9 +5,10 @@
 let popupWindowId = -1;
 chrome.runtime.onMessageExternal.addListener((message, sender, sendResponse) => {
   console.log("Background js called");
+  
   if (message.action == "OPEN_EXTENSION") {
     let page = 'index.html';
-    if(message.event.method == 'personal_sign'){
+    if(message.event.method == 'personal_sign' || message.event.method == 'eth_signTypedData_v4'){
       page = 'sign/index.html';
 
     }

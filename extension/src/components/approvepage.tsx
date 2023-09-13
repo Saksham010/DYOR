@@ -30,7 +30,7 @@ export default function ApprovePage(props:any){
         imgpath:'',
         element:<></>
     });
-    const [element,setElement] = useState(<>Default</>)
+    const [element,setElement] = useState(<>Intercepting...</>)
 
 
     console.log("Props: ",props);
@@ -72,21 +72,29 @@ export default function ApprovePage(props:any){
             });
 
             const element = <>
-                <h1>Approve token</h1>
-                <img src={logo}></img>
+                <div>
+                    <h1 className='text-3xl font-bold'>DYOR</h1>
+                </div>
+                <h1><code>Token Approval request</code></h1>
+                <div className='flex justify-center pt-2'>
+                    <img src={logo} className="rounded-md logo" alt="DYOR logo" />
+                </div>
+                <div className="pt-4">
+                    <p className="text-sm "><code>Method:</code>{props.method}</p>
+                    <p className="text-sm "><code>Token:</code>{name}</p>
+                    <p className="text-xs pt-1"><code>Signer:</code>{eoaFrom}</p>
+                    <p className="text-xs pt-1"><code>Interacting with:</code>{contractTo}</p>
 
-                <h5>Method: {props.method}</h5>
-                <h5>From: {eoaFrom}</h5> 
-                <h5>Contract: {contractTo}</h5>
-                <h5>Spender: {spender}</h5>
+                </div>
 
-                <h5>Token Name: {name} </h5>
-                <h5>This allows spender to spend {value} {symbol} tokens on your behalf</h5>
-                
+                <div className="p-1 bg-stone-100 rounded-md mt-7 h-40 max-h-40 flex justify-center items-center">
+                    <p>Approving will allow the "{spender}" to spend {value} {symbol} tokens on your behalf</p>
+
+                </div>                
             </>
             setElement(element);
 
-
+//{"types":{"PermitSingle":[{"name":"details","type":"PermitDetails"},{"name":"spender","type":"address"},{"name":"sigDeadline","type":"uint256"}],"PermitDetails":[{"name":"token","type":"address"},{"name":"amount","type":"uint160"},{"name":"expiration","type":"uint48"},{"name":"nonce","type":"uint48"}],"EIP712Domain":[{"name":"name","type":"string"},{"name":"chainId","type":"uint256"},{"name":"verifyingContract","type":"address"}]},"domain":{"name":"Permit2","chainId":"5","verifyingContract":"0x000000000022d473030f116ddee9f6b43ac78ba3"},"primaryType":"PermitSingle","message":{"details":{"token":"0x9e9adc71262ab77b460e80d41dded76dd43407e9","amount":"1461501637330902918203684832716283019655932542975","expiration":"1697188333","nonce":"0"},"spender":"0x3fc91a3afd70395cd496c647d5a6cc9d4b2b7fad","sigDeadline":"1694598133"}}
         }
 
         async function fetchAndSetERC721Data(signature:string,spender:string,value:number){

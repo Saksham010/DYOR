@@ -8,7 +8,6 @@ if (!window.isolatedContentListenerAdded) {
   window.addEventListener("message", (event) => {
     if (event.source === window && event.data.type === "FROM_GLOBAL") {
 
-      // response = {type:"TRANSACTION",data:event.data.data };
       response = event.data.data;
       // Process the received data here
       console.log("Received data in ISOLATED content script:", response);

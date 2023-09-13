@@ -18,11 +18,16 @@ function handleIntent(INTENT:string){
 
 export default function HandleIntent(){
     return(
-        <>
-            <button onClick={()=>{handleIntent("REJECT")}} >Reject</button>
-            <button onClick={()=>{handleIntent("ACCEPT")}}>Continue</button>
+        <div className="mt-36 flex justify-between pl-2 pr-2" >
 
-        </>
+            <div >
+                <button onClick={()=>{handleIntent("ACCEPT")}} className="border-1 border-black hover:border-amber-600">Continue</button>
+            </div>
+            <div>
+                <button onClick={()=>{handleIntent("REJECT")}} className="border-1 border-black hover:border-amber-600">Reject</button>
+            </div>
+
+        </div>
     )
 
 }
