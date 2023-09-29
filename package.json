@@ -3,6 +3,9 @@
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.2",
     "@types/chrome": "^0.0.244",
-    "hardhat": "^2.17.0"
+    "hardhat": "^2.17.4"
+  },
+  "dependencies": {
+    "hardhat-tracer": "^2.6.0"
   }
 }

@@ -1,4 +1,5 @@
 require("@nomicfoundation/hardhat-toolbox");
+require("hardhat-tracer");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -6,7 +7,12 @@ module.exports = {
   networks:{
     hardhat:{
       forking:{
-        url:"https://eth-mainnet.g.alchemy.com/v2/jqgmhlIy4fIg1SrqLptgOsCba0sf-40B"
+        url:"https://eth-mainnet.g.alchemy.com/v2/jqgmhlIy4fIg1SrqLptgOsCba0sf-40B",
+        blockNumber:18226134
+    
+      },
+      mining:{
+        auto:true,
       }
     }
   }
