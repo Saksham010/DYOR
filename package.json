@@ -1,11 +1,13 @@
 {
   "name": "hardhat-project",
   "devDependencies": {
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.9",
     "@nomicfoundation/hardhat-toolbox": "^2.0.2",
     "@types/chrome": "^0.0.244",
     "hardhat": "^2.17.4"
   },
   "dependencies": {
+    "ethers": "^5.7.2",
     "hardhat-tracer": "^2.6.0"
   }
 }
