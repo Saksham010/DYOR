@@ -30,6 +30,12 @@ export function parseApprovalData(data:string):APPROVAL{
         value,
     }
 }
+
+export function getSignature(data:string):string{
+    const trimed = data.slice(2,data.length); //Remove 0x
+    const functionSignature = trimed.slice(0,8);  //Get function signature
+    return functionSignature;
+}
 export function getRPCURL(chainID:string):string{
     let url = "https://eth.llamarpc.com";
 

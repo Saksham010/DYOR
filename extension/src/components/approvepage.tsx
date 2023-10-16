@@ -164,8 +164,6 @@ export default function ApprovePage(props:any){
 
                 fetchAndSetERC721Data(signature,spender,value);
  
-            }else{
-                console.log("No signature matched: ",props.status);
             }
     
         }

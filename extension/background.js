@@ -1,6 +1,6 @@
 // import {parseApprovalData} from "./helper";
 // import {approve,approveForAll} from "./signature";
-
+console.log("Background js is running");
 
 let popupWindowId = -1;
 chrome.runtime.onMessageExternal.addListener((message, sender, sendResponse) => {
