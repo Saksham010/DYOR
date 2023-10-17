@@ -4,11 +4,13 @@ function TraceParser(executionTrace){
     const externalcallLogs = tracelogs.filter((callobj)=>{ //Get all the CALL opcode
         return callobj.op == "CALL";
     });
+    console.log("Externalcall logs: ",externalcallLogs);
     return externalcallLogs;
 }
 
 function extractTransferFromLogs(externalcallLogs){
     if(externalcallLogs !== undefined){
+        
 
         const transferFromLogs = [];
         const transferFromSignature = "0000000000000000000000000000000000000000000000000000000023b872dd";
@@ -20,9 +22,10 @@ function extractTransferFromLogs(externalcallLogs){
                 if(data == transferFromSignature){
                     transferFromLogs.push(calllogs);
                 }
-            });
-    
+            });    
         });
+
+        console.log("Transfer from logs: ",transferFromLogs);
     
         return transferFromLogs;
     }
@@ -38,6 +41,8 @@ function extractDataFromLogs(transferFromLogs){
             const targetAddressList = Object.values(storagedata);
             transferedTokens = targetAddressList;   
         });
+
+        console.log("Transfer token logs: ",transferedTokens);
     
         return transferedTokens;
     }

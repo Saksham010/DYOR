@@ -152,6 +152,7 @@ function App(props:{title:string}) {
             method:fetchedResponse.method,
             params:fetchedResponse.params
           }
+          console.log("Transaction: ",tx);
 
           //API call to the server to get the response
           
