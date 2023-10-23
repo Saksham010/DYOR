@@ -22,7 +22,7 @@ module.exports = {
     hardhat:{
       forking:{
         url:"https://eth-sepolia.g.alchemy.com/v2/GxMLyxi4tXxfrtIHBBQyXZhORKs_ChAP",
-        blockNumber:4506084
+        blockNumber:4546278
     
       },
       mining:{

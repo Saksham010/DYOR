@@ -1,7 +1,7 @@
 // content.js
 
 function closeExtension(){
-  chrome.runtime.sendMessage("jjapaifglhmgmfcjnkckcbhlmfjajggi",{action:"CLOSE_EXTENSION"});
+  chrome.runtime.sendMessage("hchgggjaefgaecmiepfegkjpnbjbopkb",{action:"CLOSE_EXTENSION"});
 
 }
 
@@ -21,7 +21,7 @@ function checkForEthereum() {
 
         //Open chrome extension
         await new Promise((resolve,reject) => {
-          chrome.runtime.sendMessage("jjapaifglhmgmfcjnkckcbhlmfjajggi", { action: "OPEN_EXTENSION", event:e}, (res) => {
+          chrome.runtime.sendMessage("hchgggjaefgaecmiepfegkjpnbjbopkb", { action: "OPEN_EXTENSION", event:e}, (res) => {
             console.log("Response from background js: ",res);
 
             // Listen for response from the wallet shield

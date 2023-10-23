@@ -1,1 +1,1 @@
-[]
+[{"name":"USDC","symbol":"USDC","address":"0x94a9d9ac8a22534e3faca9f4e7f2e2cf85d5e4c8","gas":{"type":"BigNumber","hex":"0x033410"},"finalbalance":"0.000000000006002056","finalbalancewei":{"type":"BigNumber","hex":"0x5b9588"},"finaletherbalance":{"type":"BigNumber","hex":"0x09297fd9750c069a"},"initialetherbalance":{"type":"BigNumber","hex":"0x097ae48753dda70a"},"originalbalance":"0.000000000016002056","balancechangewei":{"type":"BigNumber","hex":"-0x989680"},"balancechange":"-0.00000000001","ethercheck":{"type":"BigNumber","hex":"0x097ae48753da72fa"}}]
