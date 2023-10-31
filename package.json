@@ -1,5 +1,8 @@
 {
   "name": "hardhat-project",
+  "scripts":{
+    "start":"npx hardhat run ./scripts/server.js"
+  },
   "devDependencies": {
     "@nomicfoundation/hardhat-network-helpers": "^1.0.9",
     "@nomicfoundation/hardhat-toolbox": "^2.0.2",
